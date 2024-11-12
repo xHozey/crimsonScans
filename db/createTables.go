@@ -8,8 +8,7 @@ func InitDB(db *sql.DB) error {
 		username TEXT UNIQUE,
 		email TEXT UNIQUE,
 		password TEXT,
-		profilePic TEXT,
-		jwt TEXT UNIQUE
+		profilePic TEXT
 	)`
 
 	manhua := `CREATE TABLE IF NOT EXISTS manhua(

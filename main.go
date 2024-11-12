@@ -18,7 +18,7 @@ func main() {
 
 	mux.HandleFunc("/", database.HomeHandler)
 	mux.HandleFunc("/api", handlers.DataDisplay)
-	mux.HandleFunc("/login", handlers.Login)
+	mux.HandleFunc("/login", database.Login)
 	mux.HandleFunc("/register", database.Register)
 
 	fmt.Println("Serve is listening on port 8080")

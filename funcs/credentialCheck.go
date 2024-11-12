@@ -4,6 +4,8 @@ import (
 	"database/sql"
 	"errors"
 	"regexp"
+
+	"golang.org/x/crypto/bcrypt"
 )
 
 func PasswordCheck(pass string) error {
@@ -42,4 +44,9 @@ func EmailCheck(email string, db *sql.DB) error {
 		return errors.New("Bad Request")
 	}
 	return nil
+}
+
+func PasswordValidation(hash string, pass string) bool {
+	err := bcrypt.CompareHashAndPassword([]byte(hash), []byte(pass))
+	return err == nil
 }
